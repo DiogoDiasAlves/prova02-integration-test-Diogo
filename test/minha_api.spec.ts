@@ -21,7 +21,7 @@ describe('Petstore API Tests (Swagger Mock)', () => {
     pactum.request.setDefaultTimeout(10000);
   });
 
-  describe('📌 Criação de Pets', () => {
+  describe('Criação de Pets', () => {
     it('Deve criar um pet com dados válidos', async () => {
       await pactum
         .spec()
@@ -43,7 +43,7 @@ describe('Petstore API Tests (Swagger Mock)', () => {
     });
   });
 
-  describe('🔍 Consulta de Pets', () => {
+  describe('Consulta de Pets', () => {
     it('Deve retornar um pet existente pelo ID ou 404 se não existir', async () => {
       await pactum
         .spec()
@@ -82,7 +82,7 @@ describe('Petstore API Tests (Swagger Mock)', () => {
     });
   });
 
-  describe('✏️ Atualização de Pets', () => {
+  describe('Atualização de Pets', () => {
     it('Deve atualizar os dados de um pet existente', async () => {
       await pactum
         .spec()
@@ -111,7 +111,7 @@ describe('Petstore API Tests (Swagger Mock)', () => {
     });
   });
 
-  describe('❌ Exclusão de Pets', () => {
+  describe('Exclusão de Pets', () => {
     it('Deve retornar 200 ou 404 ao deletar um pet inexistente (API não valida existência)', async () => {
       await pactum
         .spec()
@@ -133,7 +133,7 @@ describe('Petstore API Tests (Swagger Mock)', () => {
         .withJson(tempPet)
         .expectStatus(StatusCodes.OK);
 
-      // Deletar (aceita 200 ou 404)
+      
       await pactum
         .spec()
         .delete(`${baseUrl}/pet/${tempPet.id}`)
@@ -144,7 +144,7 @@ describe('Petstore API Tests (Swagger Mock)', () => {
           }
         });
 
-      // Verificar remoção (aceita 404 ou 200 por causa do mock)
+    
       await pactum
         .spec()
         .get(`${baseUrl}/pet/${tempPet.id}`)
